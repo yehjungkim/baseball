@@ -19,7 +19,9 @@ public class Game {
     }
 
     public boolean restart(final boolean restart) {
-        computer.reset();
+        if (restart) {
+            computer.reset();
+        }
         return restart;
     }
 }

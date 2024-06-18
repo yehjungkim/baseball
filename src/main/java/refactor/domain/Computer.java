@@ -1,11 +1,10 @@
 package refactor.domain;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import refactor.Utils.RandomUtils;
 
 public class Computer {
+    public static final int SIZE = 3;
     public static final int OUT = 3;
-
     private Balls balls;
     private int strike;
     private int ball;
@@ -31,17 +30,8 @@ public class Computer {
         System.out.println(balls);
     }
 
-    private Balls createBalls() {
-        final HashSet<Integer> ball = new LinkedHashSet<>();
-        while (ball.size() != Balls.SIZE) {
-            int num = createNumber();
-            ball.add(num);
-        }
-        return new Balls(ball);
-    }
-
-    public static int createNumber() {
-        return (int) (9 * Math.random()) + 1;
+    public Balls createBalls() {
+        return new Balls(RandomUtils.createList(SIZE));
     }
 
     @Override
