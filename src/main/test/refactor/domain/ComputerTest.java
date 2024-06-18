@@ -33,7 +33,7 @@ class ComputerTest {
     @Test
     void reset() {
         Balls balls = this.answer;
-        this.answer = new Computer().createBalls();
+
         assertNotEquals(balls, answer);
     }
 }

@@ -1,5 +1,6 @@
 package refactor.domain;
 
+import refactor.Utils.RandomUtils;
 import refactor.web.Output;
 
 import java.util.List;
@@ -8,7 +9,7 @@ public class Game {
     private final Computer computer;
 
     public Game() {
-        this.computer = new Computer();
+        this.computer = new Computer(RandomUtils.createList(3));
     }
 
     public boolean play(List<Integer> input) {
@@ -20,7 +21,7 @@ public class Game {
 
     public boolean restart(final boolean restart) {
         if (restart) {
-            computer.reset();
+            computer.reset(RandomUtils.createList(3));
         }
         return restart;
     }

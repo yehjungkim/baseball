@@ -1,16 +1,15 @@
 package refactor.domain;
 
-import refactor.Utils.RandomUtils;
+import java.util.List;
 
 public class Computer {
-    public static final int SIZE = 3;
     public static final int OUT = 3;
     private Balls balls;
     private int strike;
     private int ball;
 
-    public Computer() {
-        this.balls = createBalls();
+    public Computer(final List<Integer> numbers) {
+        this.balls = createBalls(numbers);
         System.out.println(this.balls);
     }
 
@@ -25,13 +24,13 @@ public class Computer {
         return strike == OUT;
     }
 
-    public void reset() {
-        this.balls = createBalls();
+    public void reset(final List<Integer> numbers) {
+        this.balls = createBalls(numbers);
         System.out.println(balls);
     }
 
-    public Balls createBalls() {
-        return new Balls(RandomUtils.createList(SIZE));
+    public Balls createBalls(final List<Integer> numbers) {
+        return new Balls(numbers);
     }
 
     @Override
